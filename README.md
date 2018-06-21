@@ -1,6 +1,6 @@
 # Objectives
 
-## In Progress! :blue_diamond:
+## In Progress! :blue_heart:
 
  1. Create a working hangman game
  2. Practice TDD
