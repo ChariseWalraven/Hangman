@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, Snackbar, Tooltip } from '@material-ui/core'
+import { Typography, Tooltip } from '@material-ui/core'
 import AutorenewIcon from '@material-ui/icons/Autorenew'
 
 const Word = ({ ...props }) => {
@@ -13,7 +13,7 @@ const Word = ({ ...props }) => {
 
           {display.length !== 0 ?
             display.join(" ") : Array.from(word)
-              .map(l => l = "_").join('')
+              .map(l => l === " " ? l = " " : l = "_").join('')
           }
         </span>
         <Tooltip title='New Word'>

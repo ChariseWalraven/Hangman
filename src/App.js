@@ -6,6 +6,9 @@ import { blue, teal, red } from '@material-ui/core/colors'
 import './App.css';
 import Footer from './containers/Footer';
 import ErrorBoundary from './ErrorBoundary'
+import { Provider } from 'react-redux'
+import store from './store'
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const theme = createMuiTheme({
   typography: {
@@ -40,15 +43,19 @@ const styles = theme => ({
 class App extends Component {
   render() {
     return (
-      <MuiThemeProvider theme={theme}>
-        <div className="App">
-          <Nav theme={theme} />
-          <ErrorBoundary>
-            <Hangman theme={theme} />
-          </ErrorBoundary>
-          <Footer theme={theme} />
-        </div>
-      </MuiThemeProvider>
+      <Provider store={store}>
+        <CssBaseline>
+          <MuiThemeProvider theme={theme}>
+            <div className="App">
+              <Nav theme={theme} />
+              <ErrorBoundary>
+                <Hangman theme={theme} />
+              </ErrorBoundary>
+              <Footer theme={theme} />
+            </div>
+          </MuiThemeProvider>
+        </CssBaseline >
+      </Provider >
     );
   }
 }

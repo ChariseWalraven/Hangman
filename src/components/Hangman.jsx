@@ -7,7 +7,6 @@ import Word from '../containers/Word'
 
 class Hangman extends Component {
   componentWillMount() {
-    console.log(Game.showGuess(['w', 'o', 'r', 'd'], 'o'))
     this.props.newWord()
     let history = [];
     let guess = [];
