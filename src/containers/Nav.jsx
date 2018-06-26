@@ -1,8 +1,9 @@
 import React from 'react'
-import { Typography, Paper } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import './Header.css'
 
-const children = (
+// top navigation
+const title = (
   <div>
     <Typography
       align='center'
@@ -15,7 +16,7 @@ const children = (
 
 const Nav = () => {
   return (
-    <div id='Header'>{children}</div>
+    <div id='Header'>{title}</div>
   )
 }
 

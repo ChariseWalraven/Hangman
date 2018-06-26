@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App> renders without crashing 1`] = `
+<div
+  className="App"
+>
+  <div
+    id="Header"
+  >
+    <div>
+      <h1
+        className="MuiTypography-root-2 MuiTypography-display4-3 MuiTypography-colorError-25 MuiTypography-alignCenter-15"
+      >
+        Hangman
+      </h1>
+    </div>
+  </div>
+  <div
+    className="Hangman"
+  >
+    <h1
+      className="MuiTypography-root-2 MuiTypography-display1-6"
+    >
+      Hit Enter to Submit your guess!
+    </h1>
+    <h1
+      className="MuiTypography-root-2 MuiTypography-display1-6"
+    >
+      Your guess:
+       
+    </h1>
+    <div
+      className="MuiTypography-root-2 MuiTypography-display1-6"
+    >
+      <span>
+        _______
+      </span>
+      <svg
+        aria-describedby={undefined}
+        aria-hidden="true"
+        className="MuiSvgIcon-root-34"
+        color={undefined}
+        focusable="false"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+        viewBox="0 0 24 24"
+      >
+        <g>
+          <path
+            d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"
+          />
+        </g>
+      </svg>
+    </div>
+    <div
+      className="MuiTypography-root-2 MuiTypography-display1-6"
+    >
+      Guesses remaining:
+      <span
+        className="MuiTypography-root-2 MuiTypography-display1-6 MuiTypography-colorError-25"
+      >
+        7
+      </span>
+    </div>
+  </div>
+  <h1>
+    Something went wrong.
+  </h1>
+  <div
+    className="MuiPaper-root-41 MuiPaper-elevation4-47 MuiPaper-rounded-42 Footer-root-40"
+    id="Footer"
+  >
+    <div
+      className="MuiGrid-container-68 MuiGrid-spacing-xs-16-90 Footer-root-40"
+    >
+      <div
+        className="MuiGrid-item-69 MuiGrid-grid-xs-12-107"
+      >
+        <div
+          className="MuiGrid-container-68 MuiGrid-spacing-xs-16-90 MuiGrid-align-items-xs-flex-end-78 MuiGrid-justify-xs-center-85"
+        >
+          <a
+            className="MuiTypography-root-2 MuiTypography-subheading-9"
+            href="#"
+          >
+            Copyright Charise Walraven 2018
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

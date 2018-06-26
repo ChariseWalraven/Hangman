@@ -1,4 +1,4 @@
-import Game from './game'
+import Game from '../lib/game'
 
 describe('Game', () => {
   describe('is an object', () => {

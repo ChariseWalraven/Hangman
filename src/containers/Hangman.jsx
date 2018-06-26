@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { guess, updateGuess, resetGuess, newWord, resetState, deleteLastLetter } from '../actions/game'
 import Game from '../lib/game'
 import { Typography } from '@material-ui/core'
-import Word from '../containers/Word'
+import Word from '../components/Word'
 
 class Hangman extends Component {
   componentWillMount() {

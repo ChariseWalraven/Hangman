@@ -1,6 +1,6 @@
 import React from 'react'
-import { Typography, Tooltip } from '@material-ui/core'
-import AutorenewIcon from '@material-ui/icons/Autorenew'
+import { Typography } from '@material-ui/core'
+import NewWord from '../components/NewWord'
 
 const Word = ({ ...props }) => {
   const { display, word } = props.props
@@ -10,15 +10,12 @@ const Word = ({ ...props }) => {
       <Typography
         variant='display1' component='div'>
         <span>
-
           {display.length !== 0 ?
             display.join(" ") : Array.from(word)
               .map(l => l === " " ? l = " " : l = "_").join('')
           }
         </span>
-        <Tooltip title='New Word'>
-          <AutorenewIcon onClick={() => handleClick()} />
-        </Tooltip>
+        <NewWord handleClick={handleClick} />
       </Typography>
     ) : null
   )

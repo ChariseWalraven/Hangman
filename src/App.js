@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Hangman from './components/Hangman'
+import Hangman from './containers/Hangman'
 import Nav from './containers/Nav'
 import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core';
 import { blue, teal, red } from '@material-ui/core/colors'
 import './App.css';
-import Footer from './containers/Footer';
+import Footer from './components/Footer';
 import ErrorBoundary from './ErrorBoundary'
 import { Provider } from 'react-redux'
 import store from './store'
