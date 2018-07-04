@@ -1,5 +1,5 @@
 const Game = {
-  words: ['today', 'tomorrow', 'yesterday', 'future tense', 'current tense', 'English', 'Spanish', 'Latin', 'French'],
+  words: ['today', 'tomorrow', 'yesterday', 'future tense', 'current tense', 'english', 'spanish', 'latin', 'french'],
 
 // returns the number of wrong guesses
   wrongGuessCount: (word, guesses) => {
