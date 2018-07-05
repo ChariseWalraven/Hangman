@@ -25,5 +25,9 @@ describe('Game', () => {
         expect(showGuess).toEqual(["_","l","_","_"])
       })
     })
+    describe('which ignores whitespace', () => {
+      const showGuess = Game.showGuess(['b', " ", "i", " ", "g"], "i")
+      expect(showGuess).toEqual(["_", " ", "i", " ", "_"])
+    })
   })
 })

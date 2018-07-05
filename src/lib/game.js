@@ -1,24 +1,24 @@
 const Game = {
   words: ['today', 'tomorrow', 'yesterday', 'future tense', 'current tense', 'english', 'spanish', 'latin', 'french'],
 
-// returns the number of wrong guesses
+  // returns the number of wrong guesses
   wrongGuessCount: (word, guesses) => {
     if (typeof guesses === 'string') {
       return [].concat(guesses)
         .filter(letter => word.indexOf(letter) === -1)
         .length
-    }
-    else return guesses
+    } else return guesses
       .filter(letter => word.indexOf(letter) === -1)
       .length
   },
 
-// shows the guess as an array with underscores
+  // shows the guess as an array with underscores
   showGuess: (word, guesses) => {
     let result = []
-    word.filter((letter) => {
-      if (guesses.indexOf(letter) > -1)
-        return result.push(letter)
+    word.filter((letter, index) => {
+      // if the guess contains the letter in question, add it to the array 
+      if (guesses.indexOf(letter) > -1) return result.push(letter)
+      else if (letter === " ") return result.push(" ")
       else return result.push("_")
     })
     return result
@@ -34,7 +34,7 @@ const Game = {
     }
   },
 
-// I'm not sure what this one does anymore
+  // I'm not sure what this one does anymore
   next: (word, guesses) => {
     let guessCount = this.wrongGuessCount(word, guesses)
     let allGuesses = Object.freeze(guesses)

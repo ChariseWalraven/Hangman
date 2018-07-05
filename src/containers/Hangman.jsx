@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { guess, updateGuess, resetGuess, newWord, resetState, deleteLastLetter } from '../actions/game'
+import { updateGuess, resetGuess, newWord } from '../actions/game'
 import Game from '../lib/game'
 import { Typography } from '@material-ui/core'
 import Word from '../components/Word'
@@ -8,28 +8,43 @@ import KeyBoard from './KeyBoard'
 
 
 class Hangman extends Component {
-  
+  state = {
+    history: [],
+    inPlay: this.props.guessesRemaining > 0,
+  }
+
   componentWillMount() {
     this.props.newWord()
   }
 
-  handleKeyboardClick = (letter) => {
+  handleKeyboardClick = async (letter) => {
     // guess with the letter
-    if (this.props.guessesRemaining > 0) {
+    if (this.state.inPlay) {
+      await this.setState({
+        history: this.state.history.concat([letter])
+      })
       let wrong = this.props.guessesRemaining - Game.wrongGuessCount(this.props.word, letter)
-      this.props.updateGuess(wrong,this.state.history)
+      this.props.updateGuess(wrong, this.state.history)
     }
     else {
-      // reset word and guesscount
-      this.props.resetGuess()
-      this.props.newWord()
+      // reset word, guesscount, display
+      await this.setState({
+        history: [],
+      })
     }
   }
 
-  handleClick = () => {
+  handleClick = async () => {
     // trigger notification
+    await this.setState({
+      history: [],
+    })
     this.props.newWord()
+  }
 
+  isWinner() {
+    // eslint-disable-next-line
+    return this.props.display.join('') == this.props.word.join('');
   }
 
   render() {
@@ -42,13 +57,21 @@ class Hangman extends Component {
         {
           this.props.display !== null ?
             <Word props={this.props} handleClick={this.handleClick} />
-            : null
+            : console.log('display is null')
         }
         <Typography variant='display1' component='div'>
-          Guesses remaining:
-          <Typography component='span' variant='display1' color={'error'}>
+          {
+            this.state.inPlay ?
+              this.isWinner() ?
+                <div>You Won!</div>
+              : null
+            : null
+          }
+        Guesses remaining:
+            <Typography component='span' variant='display1' color={'error'}>
             {this.props.guessesRemaining}
           </Typography>
+
         </Typography>
         <Typography component='div'>
           <KeyBoard handleClick={this.handleKeyboardClick} qwerty={true} />
@@ -56,17 +79,19 @@ class Hangman extends Component {
       </div>
     )
   }
+
+ 
 }
 
 
 const mapStateToProps = (state) => ({
   guessesRemaining: state.guess.guessesRemaining,
-  word: state.guess.word,
+  word: state.word,
   userGuess: state.guess.guess,
   currentLetter: state.guess.currentLetter,
   display: state.guess.display ? state.guess.display : null
 })
 
 export default connect(mapStateToProps, {
-  guess, updateGuess, resetGuess, newWord, resetState, deleteLastLetter
+  updateGuess, resetGuess, newWord
 })(Hangman)
