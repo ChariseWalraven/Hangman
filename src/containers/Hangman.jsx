@@ -11,6 +11,7 @@ class Hangman extends Component {
   state = {
     history: [],
     inPlay: this.props.guessesRemaining > 0,
+    open: false
   }
 
   componentWillMount() {
@@ -42,7 +43,7 @@ class Hangman extends Component {
     this.props.newWord()
   }
 
-  isWinner() {
+  isWinner = () => {
     // eslint-disable-next-line
     return this.props.display.join('') == this.props.word.join('');
   }
@@ -64,10 +65,10 @@ class Hangman extends Component {
             this.state.inPlay ?
               this.isWinner() ?
                 <div>You Won!</div>
+                : null
               : null
-            : null
           }
-        Guesses remaining:
+          Guesses remaining:
             <Typography component='span' variant='display1' color={'error'}>
             {this.props.guessesRemaining}
           </Typography>
@@ -79,8 +80,6 @@ class Hangman extends Component {
       </div>
     )
   }
-
- 
 }
 
 
@@ -88,7 +87,6 @@ const mapStateToProps = (state) => ({
   guessesRemaining: state.guess.guessesRemaining,
   word: state.word,
   userGuess: state.guess.guess,
-  currentLetter: state.guess.currentLetter,
   display: state.guess.display ? state.guess.display : null
 })
 
