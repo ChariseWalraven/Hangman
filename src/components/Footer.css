@@ -1,9 +1,8 @@
-#Footer {
+footer {
   position: absolute;
+  height: 10ex;
+  padding-top: 35px;
+  bottom: 0;
   width: 100%;
-  margin-top: 1rem;
-  margin-bottom: -2rem;
-  top: 88%;
-  height: 10%;
-  background-color: rgba(0,0,0,0);
+  text-align: center;
 }
