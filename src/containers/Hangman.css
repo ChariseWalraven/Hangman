@@ -1,0 +1,9 @@
+.Settings__container {
+  position: fixed;
+  top: 2.5%;
+  right: 2.5%;
+}
+
+.Settings__container > div > svg {
+  color: rgba(0, 0, 0, 0.74);
+}
